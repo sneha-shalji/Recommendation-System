@@ -1,5 +1,5 @@
-artifact config:
-  artifact_dir: artifacts
+artifacts_config:
+  artifacts_dir: artifacts
 
 
 data_ingestion_config:
