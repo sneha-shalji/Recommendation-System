@@ -32,7 +32,8 @@ class AppConfiguration:
             return response
         
         except Exception as e:
-            raise AppException(e,sys) from e 
+            raise AppException(e,sys) from e
         
 
 
+        

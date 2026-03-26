@@ -9,13 +9,14 @@ project_name = "book_recommeder"
 
 list_of_files = [
     f"{project_name}/__init__.py",
+    f"{project_name}/components/__init__.py",
     f"{project_name}/components/stage_00_data_ingestion.py",
     f"{project_name}/components/stage_01_data_validation.py",
     f"{project_name}/components/stage_02_data_transformation.py",
     f"{project_name}/components/stage_03_model_trainer.py",
     f"{project_name}/config/__init__.py",
-    f"{project_name}/config/sconfiguration.py",
-    f"{project_name}/constant/__innit__.py",
+    f"{project_name}/config/configuration.py",
+    f"{project_name}/constant/__init__.py",
     f"{project_name}/entity/__init__.py",
     f"{project_name}/entity/config_entity.py",
     f"{project_name}/exception/__init__.py",
