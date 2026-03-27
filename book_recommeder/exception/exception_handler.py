@@ -2,8 +2,8 @@ import os
 import sys
 
 class AppException(Exception):
-    def __innit__(self,error_message: Exception,error_detail: sys):
-        super().__innit__(error_message)
+    def __init__(self,error_message: Exception,error_detail: sys):
+        super().__init__(error_message)
         self.error_message = AppException.error_message_detail(error_message,error_detail=error_detail)
 
     @staticmethod

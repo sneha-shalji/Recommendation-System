@@ -1,8 +1,9 @@
 import os
 import sys
+import six
 from six.moves import urllib # we can use urllib to download something directly from a url
 import zipfile
-from book_recommeder.logger import logging
+from book_recommeder.logger.log import logging
 from book_recommeder.exception.exception_handler import AppException
 from book_recommeder.config.configuration import AppConfiguration
 
@@ -17,7 +18,7 @@ class DataIngestion:
         """
 
         try:
-            logging.info(f"{'='*20} Data Ingestion log started.{'='*20} ")
+            logging.info(f"{'='*20}Data Ingestion log started.{'='*20} ")
             self.data_ingestion_config = app_config.get_data_ingestion_config()
         except Exception as e:
             raise AppException(e,sys) from e 
@@ -34,7 +35,7 @@ class DataIngestion:
             zip_download_dir = self.data_ingestion_config.raw_data_dir
             os.makedirs(zip_download_dir,exist_ok=True)
             data_file_name = os.path.basename(dataset_url)
-            zip_file_path = os.path(zip_download_dir,data_file_name)
+            zip_file_path = os.path.join(zip_download_dir,data_file_name)
             logging.info(f"Downloading data from {dataset_url} into file {zip_file_path}")
             urllib.request.urlretrieve(dataset_url,zip_file_path)
             logging.info(f"Downloaded data from {dataset_url} into file {zip_file_path}")
@@ -69,7 +70,7 @@ class DataIngestion:
         try:
             zip_file_path = self.download_data()
             self.extract_zip_file(zip_file_path=zip_file_path)
-            logging.info(f"{'='*20} Data Ingestion log completed.{'='*20} \n\n")
+            logging.info(f"{'='*20}Data Ingestion log completed.{'='*20} \n\n")
         except Exception as e:
             raise AppException(e,sys) from e     
 
